@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 
-import styles from './Sidebar.module.css'
+import styles from './Sidebar.module.scss'
 
-const Sidebar:FC = () => {
+const Sidebar: FC = () => {
 	return <div>Sidebar</div>
 }
 
