@@ -24,7 +24,7 @@
       "@/config/*": ["config/*"],
       "@/hooks/*": ["hooks/*"],
       "@/redux/*": ["redux/*"],
-      "@/servises/*": ["servises/*"],
+      "@/services/*": ["services/*"],
       "@/shared/*": ["shared/*"],
       "@/store/*": ["store/*"],
       "@/utils/*": ["utils/*"],
