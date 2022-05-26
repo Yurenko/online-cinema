@@ -1,7 +1,9 @@
-import {configureStore} from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
+
 import { redusers } from './rootReduser'
+
 export const store = configureStore({
-    reducer: redusers 
+	reducer: redusers,
 })
 
-export type TypeRoottate = ReturnType<typeof store.getState>
+export type TypeRootState = ReturnType<typeof store.getState>
