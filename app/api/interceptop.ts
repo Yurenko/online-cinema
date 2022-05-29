@@ -18,13 +18,12 @@ export const instance = axios.create({
 	baseURL: API_URL,
 	headers: getContentType(),
 })
-
 instance.interceptors.request.use((config) => {
 	const accessToken = Cookies.get('accessToken')
-
-	if (config.headers && accessToken) {
+	if (config.headers && accessToken)
 		config.headers.Authorization = `Bearer ${accessToken}`
-	}
+
+	return config
 })
 
 instance.interceptors.response.use(
@@ -34,20 +33,21 @@ instance.interceptors.response.use(
 
 		if (
 			(error.response.status === 401 ||
-				errorCatch(error) ||
-				'jwt expired' ||
+				errorCatch(error) === 'jwt expired' ||
 				errorCatch(error) === 'jwt must be provided') &&
 			error.config &&
-			error._isRetry
+			!error.config._isRetry
 		) {
 			originalRequest._isRetry = true
 			try {
 				await AuthService.getNewTokens()
+
 				return instance.request(originalRequest)
-			} catch (error) {
-				if (errorCatch(error) === 'jwt expired') removeTokensStorage()
+			} catch (e) {
+				if (errorCatch(e) === 'jwt expired') removeTokensStorage()
 			}
 		}
+
 		throw error
 	}
 )

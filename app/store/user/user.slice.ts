@@ -38,7 +38,7 @@ export const userSlice = createSlice({
 				state.isLoading = false
 				state.user = null
 			})
-			.addCase(logout.pending, (state) => {
+			.addCase(logout.fulfilled, (state) => {
 				state.isLoading = false
 				state.user = null
 			})

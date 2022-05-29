@@ -21,12 +21,12 @@ const AuthProvider: FC<TypeComponentAuthField> = ({
 	useEffect(() => {
 		const accessToken = Cookies.get('accessToken')
 		if (accessToken) checkAuth()
-	}, [])
+	}, []) // eslint-disable-line react-hooks/exhaustive-deps
 
 	useEffect(() => {
 		const refreshToken = Cookies.get('refreshToken')
 		if (!refreshToken && user) logout()
-	}, [pathname])
+	}, [pathname]) // eslint-disable-line react-hooks/exhaustive-deps
 
 	return !isOnlyAdmin && !isOnlyUser ? (
 		<>{children}</>
