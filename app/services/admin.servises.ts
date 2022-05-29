@@ -1,5 +1,5 @@
 import { getUsersUrl } from '@/config/api.config'
-import axios from './../../api/interceptop'
+import axios from '../api/interceptop'
 
 export const AdminServises = {
 	async getCountUsers() {

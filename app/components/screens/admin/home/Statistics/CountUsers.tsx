@@ -4,7 +4,7 @@ import { useQuery } from 'react-query'
 
 import SkeletonLoader from '@/components/ui/heading/SkeletonLoader'
 
-import { AdminServises } from '@/services/auth/admin.servises'
+import { AdminServises } from '@/services/admin.servises'
 
 import styles from '../Admin.module.scss'
 
