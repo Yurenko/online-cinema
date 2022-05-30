@@ -7,8 +7,8 @@ import { IAdminTableItem } from './admin-table.interfase'
 const AdminTableItem: FC<IAdminTableItem> = ({ removeHandler, tableItem }) => {
 	return (
 		<div className={styles.item}>
-			{tableItem.items.map((value) => (
-				<div key={value}>{value}</div>
+			{tableItem.items.map((value, ind) => (
+				<div key={value + ind}>{value}</div>
 			))}
 			<AdminActions editUrl={tableItem.editUrl} removeHandler={removeHandler} />
 		</div>

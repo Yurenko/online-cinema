@@ -14,7 +14,9 @@ export const AuthService = {
 			password,
 		})
 
-		if (response.data.accessToken) saveToStorage(response.data)
+		if (response.data.accessToken) {
+			saveToStorage(response.data)
+		}
 
 		return response
 	},
@@ -25,7 +27,9 @@ export const AuthService = {
 			password,
 		})
 
-		if (response.data.accessToken) saveToStorage(response.data)
+		if (response.data.accessToken) {
+			saveToStorage(response.data)
+		}
 
 		return response
 	},
@@ -34,7 +38,7 @@ export const AuthService = {
 		removeTokensStorage()
 		localStorage.removeItem('user')
 	},
-	
+
 	async getNewTokens() {
 		const refreshToken = Cookies.get('refreshToken')
 		const response = await axios.post<IAuthResponse>(
@@ -43,7 +47,9 @@ export const AuthService = {
 			{ headers: getContentType() }
 		)
 
-		if (response.data.accessToken) saveToStorage(response.data)
+		if (response.data.accessToken) {
+			saveToStorage(response.data)
+		}
 
 		return response
 	},

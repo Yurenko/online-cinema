@@ -8,7 +8,7 @@ import { getGenreUrl, getMovieUrl } from '@/config/url.config'
 
 import { IMovie } from '@/shared/types/movie.types'
 
-import { gerGenresListEach } from '@/utils/movie/getGenresList'
+import { getGenresListEach } from '@/utils/movie/getGenresList'
 
 import styles from './MoviesList.module.scss'
 
@@ -33,7 +33,7 @@ const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 					<div className={styles.genre}>
 						{movie.genres.map((genre, idx) => (
 							<Link key={genre._id} href={getGenreUrl(genre.slug)}>
-								<a>{gerGenresListEach(idx, movie.genres.length, genre.name)}</a>
+								<a>{getGenresListEach(idx, movie.genres.length, genre.name)}</a>
 							</Link>
 						))}
 					</div>
