@@ -16,6 +16,7 @@ import { toastrError } from '@/utils/toastr-error'
 export const useActors = () => {
 	const [searchTerm, setSearchTerm] = useState('')
 	const debouncedSearch = useDebounce(searchTerm, 500)
+	const { push } = useRouter()
 
 	const queryData = useQuery(
 		['actor list', debouncedSearch],
@@ -53,13 +54,28 @@ export const useActors = () => {
 		}
 	)
 
+	const { mutateAsync: createAsync } = useMutation(
+		'create actor',
+		() => ActorService.create(),
+		{
+			onError(error) {
+				toastrError(error, 'Create actor')
+			},
+			onSuccess({ data: _id }) {
+				toastr.success('Create actor', 'create was successful')
+				push(getAdminUrl(`actor/edit/${_id}`))
+			},
+		}
+	)
+
 	return useMemo(
 		() => ({
 			handleSearch,
 			...queryData,
 			searchTerm,
 			deleteAsync,
+			createAsync,
 		}),
-		[queryData, searchTerm, deleteAsync]
+		[queryData, searchTerm, deleteAsync, createAsync]
 	)
 }
