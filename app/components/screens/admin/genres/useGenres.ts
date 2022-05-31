@@ -17,6 +17,8 @@ export const useGenres = () => {
 	const [searchTerm, setSearchTerm] = useState('')
 	const debouncedSearch = useDebounce(searchTerm, 500)
 
+	const { push } = useRouter()
+
 	const queryData = useQuery(
 		['genre list', debouncedSearch],
 		() => GenreService.getAll(debouncedSearch),
@@ -53,13 +55,28 @@ export const useGenres = () => {
 		}
 	)
 
+	const { mutateAsync: createAsync } = useMutation(
+		'create genre',
+		() => GenreService.create(),
+		{
+			onError(error) {
+				toastrError(error, 'Create genre')
+			},
+			onSuccess({ data: _id }) {
+				toastr.success('Create genre', 'create was successful')
+				push(getAdminUrl(`genre/edit/${_id}`))
+			},
+		}
+	)
+
 	return useMemo(
 		() => ({
 			handleSearch,
 			...queryData,
 			searchTerm,
 			deleteAsync,
+			createAsync,
 		}),
-		[queryData, searchTerm, deleteAsync]
+		[queryData, searchTerm, deleteAsync, createAsync]
 	)
 }

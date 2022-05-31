@@ -1,4 +1,5 @@
 import { IGenreEditInput } from '@/components/screens/admin/genre/genre-edit.interface'
+
 import { getGenresUrl } from '@/config/api.config'
 
 import axios, { axiosClassic } from './../api/interceptop'
@@ -13,6 +14,10 @@ export const GenreService = {
 
 	async getById(_id: string) {
 		return axios.get<IGenreEditInput>(getGenresUrl(`/${_id}`))
+	},
+
+	async create() {
+		return axios.post<string>(getGenresUrl(''))
 	},
 
 	async update(_id: string, data: IGenreEditInput) {
