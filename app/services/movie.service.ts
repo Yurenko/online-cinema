@@ -25,6 +25,17 @@ export const MovieService = {
 	async create() {
 		return axios.post<string>(getMoviesUrl(''))
 	},
+
+	async getMovies(searchTerm?: string) {
+		return axiosClassic.get<IMovie[]>(getMoviesUrl(``), {
+			params: searchTerm
+				? {
+						searchTerm,
+				  }
+				: {},
+		})
+	},
+
 	async update(_id: string, data: IMovieEditInput) {
 		return axios.put<string>(getMoviesUrl(`/${_id}`), data)
 	},

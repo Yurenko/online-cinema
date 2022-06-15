@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
 
-import { getAuthUrl } from '@/config/api.config'
+import { API_URL, getAuthUrl } from '@/config/api.config'
 
 import { getContentType } from './../../api/api.helpers'
 import axios from './../../api/interceptop'
@@ -42,9 +42,13 @@ export const AuthService = {
 	async getNewTokens() {
 		const refreshToken = Cookies.get('refreshToken')
 		const response = await axios.post<IAuthResponse>(
-			'/login/access-token',
-			{ refreshToken },
-			{ headers: getContentType() }
+			`${API_URL}${getAuthUrl('/login/access-token')}`,
+			{
+				refreshToken,
+			},
+			{
+				headers: getContentType(),
+			}
 		)
 
 		if (response.data.accessToken) {
