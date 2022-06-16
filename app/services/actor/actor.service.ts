@@ -31,4 +31,8 @@ export const ActorService = {
 	async delete(_id: string) {
 		return axios.delete<string>(getActorsUrl(`/${_id}`))
 	},
+
+	async getBySlug(slug: string) {
+		return axiosClassic.get<IActor>(getActorsUrl(`/by-slug/${slug}`))
+	},
 }
