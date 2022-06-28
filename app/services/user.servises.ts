@@ -32,4 +32,10 @@ export const UserService = {
 	async updateUser(_id: string, data: IProfileInput) {
 		return axios.put<string>(getUsersUrl(`/${_id}`), data)
 	},
+
+	async toggleFavorite(movieId: string) {
+		return axios.post(getUsersUrl('/profile/favorites'), {
+			movieId,
+		})
+	},
 }
