@@ -19,7 +19,13 @@ const PopularMovies: FC = () => {
 			<SkeletonLoader count={3} className="h-28 mb-4" />
 		</div>
 	) : (
-		<MoviesList link='/trending' movies={popularMovies || []} title='Popular movies'/>
+		<MoviesList
+			list={{
+				link: '/trending',
+				movies: popularMovies || [],
+				title: 'Popular movies',
+			}}
+		/>
 	)
 }
 
