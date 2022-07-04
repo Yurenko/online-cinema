@@ -1,4 +1,5 @@
 import { IGenreEditInput } from '@/components/screens/admin/genre/genre-edit.interface'
+import { ICollection } from '@/components/screens/collections/collections.types'
 
 import { getGenresUrl } from '@/config/api.config'
 
@@ -18,6 +19,10 @@ export const GenreService = {
 
 	async create() {
 		return axios.post<string>(getGenresUrl(''))
+	},
+
+	async getCollections() {
+		return axiosClassic.get<ICollection[]>(getGenresUrl('/collections'))
 	},
 
 	async update(_id: string, data: IGenreEditInput) {

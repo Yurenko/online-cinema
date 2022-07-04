@@ -1,11 +1,11 @@
 import Head from 'next/head'
+import { Props } from 'next/script'
 import NextNProgress from 'nextjs-progressbar'
 import { FC, PropsWithChildren } from 'react'
 
 import { accentColor } from '@/config/constans'
 
 import Favicons from './Favicons'
-import { Props } from 'next/script'
 
 const HeadProvider: FC<PropsWithChildren<Props>> = ({ children }) => {
 	return (
@@ -20,7 +20,7 @@ const HeadProvider: FC<PropsWithChildren<Props>> = ({ children }) => {
 			<Head>
 				<meta
 					name="viewport"
-					content="width=device-width, initial-scale=1, maximum-scale=1.0"
+					content="width=device-width, initial-scale=1, maximum-scale=5"
 				/>
 
 				<Favicons />
@@ -31,6 +31,7 @@ const HeadProvider: FC<PropsWithChildren<Props>> = ({ children }) => {
 					name="apple-mobile-web-app-status-bar-style"
 					content={'#181B1E'}
 				/>
+				<link rel="manifest" href="/manifest.json" />
 			</Head>
 			{children}
 		</>

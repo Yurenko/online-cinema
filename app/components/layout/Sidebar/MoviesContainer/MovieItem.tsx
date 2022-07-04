@@ -24,6 +24,7 @@ const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 						alt={movie.title}
 						draggable={false}
 						priority
+						layout="fixed"
 					/>
 				</a>
 			</Link>

@@ -2,15 +2,19 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 
+import { useAuth } from '@/hooks/useAuth'
+
+import FavoriteButton from '../single-movie/FavoriteButton/FavoriteButton'
 
 import styles from './Favorites.module.scss'
 import { IFavoriteItem } from './favorites.interface'
-import FavoriteButton from '../single-movie/FavoriteButton/FavoriteButton'
 
 const FavoriteItem: FC<{ item: IFavoriteItem }> = ({ item }) => {
+	const { user } = useAuth()
+
 	return (
 		<div className={styles.itemWrapper}>
-			<FavoriteButton movieId={item._id} />
+			{user && <FavoriteButton movieId={item._id} />}
 			<Link href={item.url}>
 				<a className={styles.item}>
 					<Image

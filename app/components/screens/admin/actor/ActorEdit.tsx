@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 
+import formStyles from '@/components/shared/admin/adminForm.module.scss'
 import AdminNavigation from '@/components/ui/admin-navigation/AdminNavigation'
 import Button from '@/components/ui/form-elements/Button'
 import Field from '@/components/ui/form-elements/Field'
@@ -8,8 +9,6 @@ import SlugField from '@/components/ui/form-elements/SlugField/SlugField'
 import UploadField from '@/components/ui/form-elements/UploadField/UploadField'
 import Heading from '@/components/ui/heading/Heading'
 import SkeletonLoader from '@/components/ui/heading/SkeletonLoader'
-
-import formStyles from '@/shared/admin/adminForm.module.scss'
 
 import Meta from '@/utils/meta/Meta'
 import generateSlug from '@/utils/string/generateSlug'

@@ -3,15 +3,15 @@ import type { GetStaticProps, NextPage } from 'next'
 
 import Home from '@/components/screens/home/Home'
 import { IHome } from '@/components/screens/home/home.interface'
+import { IGalleryItem } from '@/components/ui/gallery/gallery.types'
 import { ISlide } from '@/components/ui/slider/slider.types'
 
 import { getActorUrl, getMovieUrl } from '@/config/url.config'
 
+import { ActorService } from '@/services/actor/actor.service'
 import { MovieService } from '@/services/movie.service'
 
 import { getGenresList } from '@/utils/movie/getGenresList'
-import { ActorService } from '@/services/actor/actor.service'
-import { IGalleryItem } from '@/components/ui/gallery/gallery.types'
 
 const HomePage: NextPage<IHome> = (props) => {
 	return <Home {...props} />
@@ -55,6 +55,7 @@ export const getStaticProps: GetStaticProps = async () => {
 				slides,
 				trendingMovies,
 			} as IHome,
+			revalidate: 60,
 		}
 	} catch (error) {
 		console.log(errorCatch(error))
@@ -65,6 +66,7 @@ export const getStaticProps: GetStaticProps = async () => {
 				slides: [],
 				trendingMovies: [],
 			} as IHome,
+			revalidate: 60
 		}
 	}
 }

@@ -1,16 +1,24 @@
 import { FC } from 'react'
 
 import Heading from '@/components/ui/heading/Heading'
+import SkeletonLoader from '@/components/ui/heading/SkeletonLoader'
+
+import { getMovieUrl } from '@/config/url.config'
+
+import { useAuth } from '@/hooks/useAuth'
+
+import Meta from '@/utils/meta/Meta'
 
 import FavoriteItem from './FavoriteItem'
 import styles from './Favorites.module.scss'
 import { useFavorites } from './useFavorites'
-import Meta from '@/utils/meta/Meta'
-import SkeletonLoader from '@/components/ui/heading/SkeletonLoader'
-import { getMovieUrl } from '@/config/url.config'
 
 const Favorites: FC = () => {
 	const { favoritesMovies, isLoading } = useFavorites()
+
+	const { user } = useAuth()
+
+	if (!!user) return null
 
 	return (
 		<Meta title="Favorites">

@@ -1,14 +1,16 @@
 import { errorCatch } from 'api/api.helpers'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 
+import SingleMovie from '@/components/screens/single-movie/SingleMovie'
 import { IGalleryItem } from '@/components/ui/gallery/gallery.types'
+
+import { getMovieUrl } from '@/config/url.config'
+
+import { MovieService } from '@/services/movie.service'
 
 import { IMovie } from '@/shared/types/movie.types'
 
 import Error404 from '../404'
-import SingleMovie from '@/components/screens/single-movie/SingleMovie'
-import { MovieService } from '@/services/movie.service'
-import { getMovieUrl } from '@/config/url.config'
 
 const SingleMoviePage: NextPage<{
 	movie: IMovie | undefined
@@ -61,6 +63,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 		return {
 			notFound: true,
+			revalidate: 60,
 		}
 	}
 }
