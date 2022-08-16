@@ -16,7 +16,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	try {
 		const { data: actors } = await ActorService.getAll()
 		const paths = actors.map((g) => ({
-			params: { slug: g.slug },
+			params: { slug: g.slug || '404' },
 		}))
 
 		return {
@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 		return {
 			props: { movies, actor },
-			revalidate: 60
+			revalidate: 60,
 		}
 	} catch (e) {
 		// console.log(errorCatch(e))

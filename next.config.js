@@ -12,11 +12,11 @@ async rewrites() {
   return [
     {
       source: '/api/:path*',
-      destination: 'http://localhost:4200/api/:path*'
+      destination: 'https://powerful-stream-29803.herokuapp.com/api/:path*'
     },
     {
       source: '/uploads/:path*',
-      destination: 'http://localhost:4200/uploads/:path*'
+      destination: 'https://powerful-stream-29803.herokuapp.com/uploads/:path*'
     }
   ]
 }
