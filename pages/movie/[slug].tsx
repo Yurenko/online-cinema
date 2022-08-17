@@ -46,7 +46,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		const responseSimilarMovies = await MovieService.getByGenres(
 			movie.genres.map((g) => g._id)
 		)
-
+		console.log(`Building slug: ${params?.slug}`)
 		const similarMovies: IGalleryItem[] = responseSimilarMovies.data
 			.filter((m) => m._id !== movie._id)
 			.map((m) => ({
