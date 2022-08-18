@@ -2,7 +2,7 @@
 const nextConfig = {
 	images: {
 		loader: 'akamai',
-		path: '',
+		path: '/',
 	},
 	poweredByHeader: false,
 	optimizeFonts: false,
