@@ -3,6 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 
+import ImageLoader from '@/assets/images/ImageLoader'
+
 import styles from './Gallery.module.scss'
 import { IGalleryItemProps } from './gallery.types'
 
@@ -17,6 +19,7 @@ const GalleryItem: FC<IGalleryItemProps> = ({ item, variant }) => {
 				})}
 			>
 				<Image
+					loader={ImageLoader}
 					alt={item.name}
 					src={item.posterPath}
 					layout="fill"

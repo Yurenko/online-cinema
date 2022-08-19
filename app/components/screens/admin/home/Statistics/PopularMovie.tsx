@@ -7,6 +7,8 @@ import { useQuery } from 'react-query'
 import SkeletonLoader from '@/components/ui/heading/SkeletonLoader'
 import SubHeading from '@/components/ui/heading/SubHeading'
 
+import ImageLoader from '@/assets/images/ImageLoader'
+
 import { getMovieUrl } from '@/config/url.config'
 
 import { MovieService } from '@/services/movie.service'
@@ -33,6 +35,7 @@ const PopularMovie: FC = () => {
 						<Link href={getMovieUrl(movie.slug)}>
 							<a>
 								<Image
+									loader={ImageLoader}
 									width={285}
 									height={176}
 									src={movie.bigPoster}

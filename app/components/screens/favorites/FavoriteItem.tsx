@@ -2,6 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 
+import ImageLoader from '@/assets/images/ImageLoader'
+
 import { useAuth } from '@/hooks/useAuth'
 
 import FavoriteButton from '../single-movie/FavoriteButton/FavoriteButton'
@@ -18,6 +20,7 @@ const FavoriteItem: FC<{ item: IFavoriteItem }> = ({ item }) => {
 			<Link href={item.url}>
 				<a className={styles.item}>
 					<Image
+						loader={ImageLoader}
 						alt={item.name}
 						src={item.posterPath}
 						layout="fill"

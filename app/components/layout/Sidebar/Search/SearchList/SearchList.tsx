@@ -2,6 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 
+import ImageLoader from '@/assets/images/ImageLoader'
+
 import { getMovieUrl } from '@/config/url.config'
 
 import { IMovie } from '@/shared/types/movie.types'
@@ -16,6 +18,7 @@ const SearchList: FC<{ movie: IMovie[] }> = ({ movie }) => {
 					<Link key={movie._id} href={getMovieUrl(movie.slug)}>
 						<a>
 							<Image
+								loader={ImageLoader}
 								src={movie.poster}
 								width={50}
 								height={50}
