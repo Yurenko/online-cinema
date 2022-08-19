@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React, { FC } from 'react'
 
-import ImageLoader from '@/assets/images/ImageLoader'
+import imageLoader from '@/assets/images/ImageLoader'
 
 import styles from './Banner.module.scss'
 
@@ -14,7 +14,7 @@ const Banner: FC<IBanner> = ({ imagePath, Detail }) => {
 	return (
 		<div className={styles.banner}>
 			<Image
-				loader={ImageLoader}
+				loader={imageLoader}
 				alt=""
 				src={imagePath}
 				draggable={false}

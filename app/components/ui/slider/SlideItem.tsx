@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 
-import ImageLoader from '@/assets/images/ImageLoader'
+import imageLoader from '@/assets/images/ImageLoader'
 
 import styles from './Slider.module.scss'
 import { ISlide } from './slider.types'
@@ -19,7 +19,7 @@ const SlideItem: FC<ISlideItem> = ({ slide, buttonTitle = 'Watch' }) => {
 		<div className={styles.slide}>
 			{slide.bigPoster && (
 				<Image
-					loader={ImageLoader}
+					loader={imageLoader}
 					layout="fill"
 					className={styles.image}
 					src={slide.bigPoster}

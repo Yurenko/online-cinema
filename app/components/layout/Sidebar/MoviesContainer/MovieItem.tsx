@@ -4,6 +4,8 @@ import { FC } from 'react'
 
 import MaterialIcon from '@/components/ui/MaterialIcon'
 
+import imageLoader from '@/assets/images/ImageLoader'
+
 import { getGenreUrl, getMovieUrl } from '@/config/url.config'
 
 import { IMovie } from '@/shared/types/movie.types'
@@ -11,8 +13,6 @@ import { IMovie } from '@/shared/types/movie.types'
 import { getGenresListEach } from '@/utils/movie/getGenresList'
 
 import styles from './MoviesList.module.scss'
-import ImageLoader from '@/assets/images/ImageLoader'
-
 
 const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 	return (
@@ -20,7 +20,7 @@ const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 			<Link href={getMovieUrl(movie.slug)}>
 				<a>
 					<Image
-						loader={ImageLoader}
+						loader={imageLoader}
 						width={65}
 						height={97}
 						src={movie.poster}
