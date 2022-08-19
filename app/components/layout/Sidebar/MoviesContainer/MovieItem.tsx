@@ -12,12 +12,16 @@ import { getGenresListEach } from '@/utils/movie/getGenresList'
 
 import styles from './MoviesList.module.scss'
 
+const myLoader = ({ src }: any) => {
+	return `https://powerful-stream-29803.herokuapp.com${src}`
+}
 const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 	return (
 		<div className={styles.item}>
 			<Link href={getMovieUrl(movie.slug)}>
 				<a>
 					<Image
+						loader={myLoader}
 						width={65}
 						height={97}
 						src={movie.poster}
