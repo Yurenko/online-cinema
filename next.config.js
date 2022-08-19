@@ -3,7 +3,9 @@ const nextConfig = {
 	images: {
 		loader: 'akamai',
 		path: '/',
-		domains: ["powerful-stream-29803.herokuapp.com"],
+	},
+	Image: {
+		domains: ['powerful-stream-29803.herokuapp.com'],
 	},
 	poweredByHeader: false,
 	optimizeFonts: false,
