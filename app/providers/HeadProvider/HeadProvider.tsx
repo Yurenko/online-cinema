@@ -31,7 +31,7 @@ const HeadProvider: FC<PropsWithChildren<Props>> = ({ children }) => {
 					name="apple-mobile-web-app-status-bar-style"
 					content={'#181B1E'}
 				/>
-				<link rel="manifest" href="/manifest.json" />
+				<link rel="manifest" href="/online-cinema/manifest.json" />
 			</Head>
 			{children}
 		</>
