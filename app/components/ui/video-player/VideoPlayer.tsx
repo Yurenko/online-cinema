@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import { FC } from 'react'
 
-import { API_URL } from '@/config/api.config'
+import { URL } from '@/config/api.config'
 
 import { useAuth } from '@/hooks/useAuth'
 
@@ -27,7 +27,7 @@ const VideoPlayer: FC<IVideoPlayer> = ({ videoSource, slug }) => {
 					<video
 						ref={videoRef}
 						className={styles.video}
-						src={`${API_URL}${videoSource}#t=8`}
+						src={`${URL}${videoSource}#t=8`}
 						preload="metadata"
 					/>
 
